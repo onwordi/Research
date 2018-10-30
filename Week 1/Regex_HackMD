@@ -1,0 +1,134 @@
+TEAM REGEX 
+
+What is Regex?
+
+Regex (or Regular Expression) denotes a sequence of characters that define a search pattern. 
+Often this patttern is then used by some kind of string searching algorithm such as "find", 
+"find and replace", or "match". It can also be used for input validation. 
+
+It is used for operations like text editors, spell checkers and lexical analysis. Regex 
+support is part of the standard library of many programming languages, including Java and
+Python, and is built into the syntax of others, including Perl and ECMAScript.
+
+Within Regex there are two kinds of characters meta and literal. Metacharacters are used
+for operations and include{}[]()^$.|*+? . Literal characters represent themselves and 
+include the numbers 1-9 and the letters a-z. Some characters can (confusingly) be both. 
+As you will see in the email exampleif you need to use a metacharacter such as (.) for
+its literal use you can put an escape (\) infront of it. 
+
+How to use regex
+
+ (basic) pattern creation and repetitions
+
+
+.test() returns true of false [if your pattern finds something or not.]
+
+Example
+*********************************************
+let myString = "freeCodeCamp";
+let fccRegex = /freeCodeCamp/i; // Change this line
+let result = fccRegex.test(myString);
+
+
+pattern creation and repetitions
+**********************************************
+find a pattern within a string                    /freecodecamp/
+multiple different patterns (or operator)         /free|code|camp|FAC/
+Ignore Case While Matching                        /freeCodeCamp/i
+***********************************************
+
+
+
+
+.match() extract the actual matches you found [apply the method on a string and pass in the regex inside the parentheses.]
+
+Example
+*********************************************
+
+let extractStr = "Extract the word 'coding' from this string.";
+let codingRegex = /coding/; // Change this line
+let result = extractStr.match(codingRegex); // Change this line
+
+
+        pattern creation and repetitions
+**********************************************
+Find More Than the First Match    /or ignore case                    /freecodecamp/g     /i
+Match Anything with Wildcard Period                                  /.reecodecamp/          (would match any char with reecodecamp)
+Match Single Character with Multiple Possibilities                   /[ref]/ig   (would match free)
+define a range of characters to match using a hyphen character: -    /[a-z]/ig
+to match a range of characters is not limited to letters.            /[a-z0-9]/ig
+create a set of characters that you do not want to match             /[^aeiou0-9]/ig;
+Match Characters that Occur One or More Times                        /a+/ig
+Match Characters that Occur Zero or More Times                       /Aa*/
+Find Characters with Lazy Matching                                   /<.*?>/
+Find One or More                                                     /C+/g
+Match Beginning String Patterns                                      /^Cal/
+Match Ending String Patterns                                         /Cal$/
+Match All Letters and Numbers  _                                     /\w/g
+Match Everything But Letters and Numbers                             /\W/g
+Match All Numbers                                                    /\d/g
+Match All Non-Numbers                                                /\D/g
+You need to check usernames in a database.                 /[a-z]{2,}|[0-9]*$]/i  (only numbers at the end 2 or more, any case, zero or more digs at end)
+Match Whitespace                                                      /\s/g
+Match Non-Whitespace Characters                                       /\S/g
+Specify Upper and Lower Number of Matches                             /Oh{3,6}
+Specify Only the Lower Number of Matches                              /O{4,}h/
+Specify Exact Number of Matches                                       /O{4}h/
+Check for All or None                                                 /favou?rite/           (US and UK spelling) 
+
+(Advanced) groups
+
+Positive (?=...) and Negative Lookahead (?!...)                       /(?=\w{5,})(?=\D*\d{2})/
+
+A positive lookahead will look to make sure the element in the search pattern is there, but won't actually match it. A positive lookahead is used as (?=...) where the ... is the required part that is not matched.
+
+negative lookahead will look to make sure the element in the search pattern is not there. A negative lookahead is used as (?!...) where the ... is the pattern that you do not want to be there. The rest of the pattern is returned if the negative lookahead part is not present.
+
+let quit = "qu";
+let noquit = "qt";
+let quRegex= /q(?=u)/;
+let qRegex = /q(?!u)/;
+quit.match(quRegex); // Returns ["q"]
+noquit.match(qRegex); // Returns ["q"]
+
+
+Reuse Patterns Using Capture Groups                                   ^(\d+)\s\1\s\1$/;
+
+************************************************
+
+What is regex101 ?
+
+
+---
+
+
+---
+Explanation of regex rule for the regex email tester:
+
+Create a code snippet using regex such as email validator
+us3r1@foundersandcoders.com
+
+     /[\w_.]+@[\w_.]{3,}\.[a-zA-Z]{2,}$/
+     
+ 
+**1. user must start with an alphabetical character**
+
+**2. user can contain also other characters (which ones? _ .)**
+
+	\w = [a-zA-Z0-9]
+    _ . = accept underscore and dots
+	+ = One or more time
+**3. site and user are always separated by a snail/small duck/AT symbol (@)**
+
+**4. site is always done with at least 3 alphabetical characters, a dot and at least 2 more alphabetical characters**
+ 
+    {3,} = at least 3 length / , defines more than 3
+    . = To use special case, put \ front of special case 
+    ^ = To start Regex
+    $ = To finish Regex
+ 
+ 
+---.
+
+
+---
