@@ -1,0 +1,93 @@
+***COMMAND LINE HACKS***
+
+1. On UBUNTU TERMINAL, if you want to paste/copy something you need to press **CTRL+SHIFT+V** or **CTRL+SHIFT+C** instead of only **CTRL+V/C**.
+2. **cd ~** brings you to **home**.
+3. When navigating through folders, typing the first letter and then hitting **TAB** will show you all the folders starting with that letter, It can also be used to auto-complete.
+4. Arrows up/down will let you navigate through all the previous commands you've entered.
+5. Dragging one file into the Terminal will return the postion of that file.
+6. **CTRL+SHIFT+T** (**COMMAND+T** on a MAC) opens tabs in the Terminal.
+7. Create multiple subfolders in one go! Type **mkdir FoundersAndCoders{Mike, Alex, Charmaine, Sak}**
+8. Type **:q!** to quit VIM without saving (short for _:quit!_)
+**:wq** to write and quit.
+9. Auto-complete directories from a single letter , like **cd ~/d/y** and take you directly to cd ~/Downloads/YouTube
+10. If you type **history** in your terminal you can find all the commands you have ever entered.
+11. Typing **touch** will create a new file.
+
+***VISUAL CHANGES TO COMMAND LINE***
+
+***SIMPLE***
+1. The simplest way of changing the way the Terminal looks is to click on Preferences and Colours;
+
+***HARD***
+1. You can make custom shortcuts. On Mac go to _.bash_profile_, whilst on Linux it's _.profile_, then write alias and the  shortcut. E.g. **alias c='clear'** will set **c** to clear up the screen.
+2. You can change the colours more deeply by opening _.bash_profile_ on a Mac and create variables using colour numbers such as::
+ **Black       0;30     Dark Gray     1;30
+ Blue        0;34     Light Blue    1;34
+  Green       0;32     Light Green   1;32
+ Cyan        0;36     Light Cyan    1;36
+ Red         0;31     Light Red     1;31
+ Purple      0;35     Light Purple  1;35
+ Brown       0;33     Yellow        1;33
+Light Gray  0;37     White         1;37**
+
+e.g. **red="\[\033[0;31m\]"** this will create a variable "red" which you can then use like this:
+
+**export PS1="\$purple\u$green\$(__git_ps1)$blue \W $ $red"**
+
+which will make everything red.
+
+***Git Commands***
+
+**git log** - shows the commits made in this repository starting with the most recent.
+
+**git init** - Initalise/create a git repository.
+
+**git status** - shows status of staging area.
+
+**git diff (no arguments)** - compare working directory and staging area.
+
+**git diff (with 2 arguments commit ids)** - compares the two commits.
+
+**git checkout (with one commit id as argument)** - Temporarily reset all files in a directory to their stat at the time of a specific commit.
+
+**git diff  - - staged** - compare staging area and the most recent commit.
+
+# ----------------------
+# Git Aliases
+# ----------------------
+alias ga='git add'
+alias gaa='git add .'
+alias gaaa='git add --all'
+alias gau='git add --update'
+alias gb='git branch'
+alias gbd='git branch --delete '
+alias gc='git commit'
+alias gcm='git commit --message'
+alias gcf='git commit --fixup'
+alias gco='git checkout'
+alias gcob='git checkout -b'
+alias gcom='git checkout master'
+alias gcos='git checkout staging'
+alias gcod='git checkout develop'
+alias gd='git diff'
+alias gda='git diff HEAD'
+alias gi='git init'
+alias glg='git log --graph --oneline --decorate --all'
+alias gld='git log --pretty=format:"%h %ad %s" --date=short --all'
+alias gm='git merge --no-ff'
+alias gma='git merge --abort'
+alias gmc='git merge --continue'
+alias gp='git pull'
+alias gpr='git pull --rebase'
+alias gr='git rebase'
+alias gs='git status'
+alias gss='git status --short'
+alias gst='git stash'
+alias gsta='git stash apply'
+alias gstd='git stash drop'
+alias gstl='git stash list'
+alias gstp='git stash pop'
+alias gsts='git stash save'
+
+
+
